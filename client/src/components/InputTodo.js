@@ -176,7 +176,10 @@ export default InputTodo;
 
 const Pagination = ({ currentPage,todosPerPage, totalTodos, paginate }) => {
   const pageNumbers = [];
-
+ console.log("totalTodos",totalTodos);
+ console.log("todosPerPage",todosPerPage);
+ console.log("currentPage",currentPage);
+ console.log("paginate",paginate);
   for (let i = 1; i <= Math.ceil(totalTodos / todosPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -184,18 +187,18 @@ const Pagination = ({ currentPage,todosPerPage, totalTodos, paginate }) => {
   return (
     <nav className="nav">
       <ul className="pagination">
-        {pageNumbers.map((number) => (
-          <li key={number} className="page-item">
+        {pageNumbers.map((numbers) => (
+          <li key={numbers} className="page-item">
             <a
-              onClick={() => paginate(number)}
+              onClick={() => paginate(numbers)}
               href="#!"
               className="page-link"
             >
              <Chip color="info"
-             key={number}
-             label={number}>
-             {/* {number} */}
-             disabled={currentPage === number}
+             key={numbers}
+             label={numbers}>
+             {/* {numbers} */}
+             disabled={currentPage === numbers}
               </Chip> 
             </a>
           </li>
